@@ -180,11 +180,16 @@ def get_data():
     return {"error": "No data yet"}
 
 if __name__ == "__main__":
-    # Start scraper in background
+    # Run scrape ONCE before starting server
+    print("Running initial scrape...")
+    perform_scrape()
+    
+    # Start scraper loop in background
+    import threading
     thread = threading.Thread(target=run_scraper_loop)
     thread.daemon = True
     thread.start()
     
     # Start web server
     print("Starting web server...")
-    app.run(host='0.0.0.0', port=10000)    
+    app.run(host='0.0.0.0', port=10000) 
