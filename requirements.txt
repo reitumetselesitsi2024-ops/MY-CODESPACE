@@ -1,0 +1,8 @@
+selenium
+tensorflow
+scikit-learn
+numpy
+pandas
+matplotlib
+flask
+gunicorn
